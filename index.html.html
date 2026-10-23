@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teachers Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f8fafc;--card:#ffffff;--tx:#0f172a;--mut:#64748b;--bd:#e2e8f0;--gray:#f1f5f9;--ac:#2563eb;--ac2:#06b6d4;--acx:#ffffff;--acd:#1d4ed8;--hv:#1d4ed8;--hb:#1d4ed8;--soft:#eff6ff;--chip:#dbeafe;--chiptx:#1d4ed8;--ok:#15803d;--er:#b91c1c;--hd1:#1e3a8a;--hd2:#2563eb;--sh:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(37,99,235,.08);--bar:linear-gradient(90deg,#2563eb,#06b6d4);--red:#dc2626;--grn:#16a34a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#111c33;--tx:#e5e7eb;--mut:#9ca3af;--bd:#243049;--gray:#1b2740;--ac:#60a5fa;--ac2:#22d3ee;--acx:#0b1220;--acd:#93c5fd;--hv:#93c5fd;--hb:#93c5fd;--soft:#16264a;--chip:#1e3a6e;--chiptx:#bfdbfe;--ok:#4ade80;--er:#f87171;--hd1:#0b1b3f;--hd2:#1d4ed8;--sh:none;--red:#f87171;--grn:#4ade80}}
+:root[data-theme="dark"]{--bg:#0f172a;--card:#111c33;--tx:#e5e7eb;--mut:#9ca3af;--bd:#243049;--gray:#1b2740;--ac:#60a5fa;--ac2:#22d3ee;--acx:#0b1220;--acd:#93c5fd;--hv:#93c5fd;--hb:#93c5fd;--soft:#16264a;--chip:#1e3a6e;--chiptx:#bfdbfe;--ok:#4ade80;--er:#f87171;--hd1:#0b1b3f;--hd2:#1d4ed8;--sh:none;--red:#f87171;--grn:#4ade80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Inter",system-ui,-apple-system,"Segoe UI","Noto Sans Bengali",sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header .wrap{padding:0}
+h1{margin:0;font-size:24px;letter-spacing:.2px;font-weight:700}
+.sub{opacity:.8;font-size:13px;margin-top:2px}
+main{max-width:1040px;margin:-38px auto 24px;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h2{margin:0 0 10px;font-size:15px;font-weight:650}
+textarea{width:100%;min-height:110px;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;background:var(--bg);color:var(--tx);font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--ac);outline-offset:1px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+button,select,input[type=search]{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:9px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer}
+input[type=search]{cursor:text;min-width:200px;flex:1 1 200px}
+button.p{background:var(--ac);color:var(--acx);border-color:var(--ac);font-weight:600}
+button.p:hover{background:var(--hb);border-color:var(--hb)}
+button.sm{padding:4px 10px;font-size:12.5px}
+button.dg{color:var(--er)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.stats[hidden]{display:none}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);border-top:3px solid var(--ac)}
+.stat:nth-child(2){border-top-color:var(--ac2)}.stat:nth-child(3){border-top-color:var(--acd)}.stat:nth-child(4){border-top-color:#ea580c}
+.stat b{display:block;font-size:26px;line-height:1.15}.stat span{color:var(--mut);font-size:12.5px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;background:var(--gray)}
+tr:last-child td{border-bottom:0}
+.chip{display:inline-block;background:var(--chip);color:var(--chiptx);border-radius:999px;padding:1px 10px;margin:2px 4px 2px 0;font-size:12.5px;white-space:nowrap}
+.chip.w{background:#fff3e0;color:#9a3412}
+.n{font-weight:700;text-align:center;font-size:16px;color:var(--acd)}
+.dl{margin-bottom:5px}.dl b{font-size:13px}
+.mut{color:var(--mut);font-size:13px}
+.up{color:var(--red);font-weight:700}.dn{color:var(--grn);font-weight:700}
+.ok{color:var(--ok)}.er{color:var(--er)}
+details{border:1px solid var(--bd);border-radius:12px;margin-bottom:10px;background:var(--card);overflow:hidden}
+summary{cursor:pointer;padding:12px 14px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;list-style:none;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";color:var(--mut);transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+details[open]>summary{background:var(--soft)}
+summary .sp{flex:1}
+.in{padding:4px 12px 12px}
+.badge{background:var(--soft);color:var(--chiptx);border-radius:8px;padding:2px 9px;font-size:12.5px;font-weight:600}
+.rank{width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--acd);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.r1{background:#fef3c7;color:#92400e}.r2{background:#e5e7eb;color:#374151}.r3{background:#fde7d3;color:#9a3412}
+.bar{height:10px;border-radius:99px;background:var(--soft);overflow:hidden;min-width:120px}
+.bar i{display:block;height:100%;background:var(--bar);border-radius:99px}
+.top{display:grid;grid-template-columns:34px minmax(0,1.4fr) minmax(90px,2fr) 44px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--bd)}
+.ti{border-bottom:1px solid var(--bd);padding-bottom:8px}.ti:last-child{border-bottom:0}.ti .top{border-bottom:0;padding-bottom:4px}.dts{padding-left:44px}
+.top .nm{overflow:hidden;text-overflow:ellipsis}
+.top .nm small{display:block;color:var(--mut);font-size:12px}
+.top .c{font-weight:700;text-align:right;color:var(--acd)}
+.pv{margin-top:14px;border:1px dashed var(--ac);border-radius:12px;background:var(--soft);padding:14px}
+.pv h3{margin:0 0 8px;font-size:15px}
+.pv .tw{max-height:320px;overflow:auto;background:var(--card);border-radius:10px;border:1px solid var(--bd);margin:10px 0}
+
+
+
+body{font-family:"Inter","Roboto","Noto Sans Bengali",Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+header{background:radial-gradient(760px 260px at 92% -50%,rgba(6,182,212,.45),transparent 62%),linear-gradient(120deg,var(--hd1),var(--hd2));color:#fff;padding:34px 16px 78px;text-align:center}
+h1{font-size:30px;font-weight:700;letter-spacing:.3px;text-shadow:0 2px 14px rgba(0,0,0,.25)}
+main{width:100%;flex:1;margin-top:-52px}
+.card{border-radius:18px}
+.stat{border-radius:18px;border-top-width:0;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--ac),var(--ac2))}
+.stat b{font-size:30px;background:linear-gradient(120deg,var(--acd),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 236px;gap:16px;align-items:start}
+.side{position:sticky;top:12px;display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:10px;box-shadow:var(--sh)}
+.tab{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:0;background:transparent;border-radius:13px;padding:11px 12px;font:inherit;font-weight:600;font-size:14.5px;color:var(--tx);cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s,color .2s}
+.tab .ic{width:36px;height:36px;border-radius:11px;background:var(--soft);display:grid;place-items:center;font-size:18px;flex:none;transition:background .2s}
+.tab:hover{background:var(--soft);transform:translateX(-3px)}
+.tab:active{transform:scale(.96)}
+.tab.on{background:linear-gradient(120deg,var(--ac),var(--acd));color:#fff;box-shadow:0 10px 22px rgba(37,99,235,.38);transform:translateX(-4px)}
+.tab.on .ic{background:rgba(255,255,255,.22)}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel:not([hidden]){animation:fi .28s ease}
+details{border-radius:14px}
+.rank{box-shadow:0 2px 6px rgba(0,0,0,.08)}
+footer{text-align:center;padding:18px 16px 22px;color:var(--mut);font-size:13px;letter-spacing:.3px}
+footer b{background:linear-gradient(120deg,var(--acd),#06b6d4,var(--acd));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+@media(max-width:780px){.layout{grid-template-columns:1fr}.side{order:-1;flex-direction:row;overflow-x:auto;position:static}.tab{flex:1 0 auto;width:auto;white-space:nowrap}.tab:hover,.tab.on{transform:none}h1{font-size:22px}header{padding:26px 16px 70px}}
+
+.stats{grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+.stat{font:inherit;color:var(--tx);text-align:left;display:block;width:100%;padding:14px 16px 14px 18px}
+.stat .ic{font-style:normal;position:absolute;right:12px;top:10px;font-size:22px;opacity:.9}
+.stat b{display:block}
+.stat em{position:absolute;right:14px;bottom:10px;font-style:normal;font-size:20px;color:var(--acd);opacity:0;transform:translateX(-6px);transition:.2s}
+.stat.clk{cursor:pointer;transition:transform .18s,box-shadow .2s,background .2s}
+.stat.clk:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(37,99,235,.2)}
+.stat.clk:hover em{opacity:1;transform:none}
+.stat.clk:active{transform:scale(.97)}
+.stat.clk.on{background:var(--ac);border-color:transparent;box-shadow:0 14px 30px rgba(37,99,235,.4)}
+.stat.clk.on b{background:none;color:var(--acx);-webkit-text-fill-color:var(--acx)}
+.stat.clk.on span{color:var(--acx)}
+.stat.clk.on::before{background:rgba(255,255,255,.55)}
+.stat.clk.on em{color:var(--acx);opacity:1;transform:none}
+body{background:var(--bg)}
+
+.big{display:flex;justify-content:center;gap:clamp(24px,8vw,90px);flex-wrap:wrap;margin:34px 0 10px}
+.circ{text-align:center;animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.circ:nth-child(2){animation-delay:.12s}
+.ring{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;position:relative;margin:0 auto 12px;background:conic-gradient(var(--ac),var(--acd),var(--ac2),var(--ac));box-shadow:0 16px 36px rgba(37,99,235,.28)}
+.ring::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--card)}
+.ring b{position:relative;z-index:1;font-size:50px;line-height:1;background:linear-gradient(120deg,var(--acd),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.circ span{font-weight:600;font-size:16px;color:var(--tx)}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@media(max-width:480px){.ring{width:150px;height:150px}.ring b{font-size:40px}}
+
+.modes{display:flex;gap:6px;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:6px;box-shadow:var(--sh);margin-bottom:14px}
+.modes button{flex:1;border:0;background:transparent;border-radius:11px;padding:11px 10px;font:inherit;font-weight:700;font-size:15px;color:var(--mut);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s,transform .15s}
+.modes button:hover{background:var(--soft);color:var(--hv)}
+.modes button:active{transform:scale(.97)}
+.modes button.on{background:var(--ac);color:var(--acx);box-shadow:0 8px 20px rgba(37,99,235,.35)}
+
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.pill{border:1px solid var(--bd);background:var(--card);color:var(--mut);border-radius:999px;padding:7px 16px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;transition:.18s}
+.pill:hover{background:var(--soft);color:var(--hv);border-color:var(--hv)}
+.pill:active{transform:scale(.96)}
+.zr{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:12px 14px;margin-bottom:10px;border:1px dashed var(--bd);border-radius:12px;background:var(--gray);font-weight:600}
+.zr .mut{font-weight:400}
+.stat.clk:hover{border-color:var(--hv)}
+.stat.clk.on:hover{background:var(--hb)}
+.modes button.on:hover{background:var(--hb);color:var(--acx)}
+.pill.on:hover{background:var(--hb);color:var(--acx);border-color:transparent}
+.pill.on{background:var(--ac);color:var(--acx);border-color:transparent;box-shadow:0 6px 16px rgba(37,99,235,.32)}
+.ovg{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px 22px}
+.ovh{margin:0 0 6px;font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px}
+
+input.sm{flex:0 0 170px;width:170px;min-width:0;padding:6px 10px;font-size:13px}
+.tr{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+input[type=time]{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:9px;padding:6px 8px;font:inherit;font-size:14px;color-scheme:light dark}
+
+.ti.clk .top{cursor:pointer;grid-template-columns:34px minmax(0,1.4fr) minmax(90px,2fr) 64px;border-radius:10px;transition:background .15s}
+.ti.clk .top:hover{background:var(--soft)}
+.ti.clk .c{white-space:nowrap}
+.ti.clk .c::after{content:" ▾";font-size:12px;color:var(--mut);font-weight:400}
+.ti.clk.sh .c::after{content:" ▴"}
+.dts.hid{display:none}
+.ti.sh .dts.hid{display:block;animation:fi .2s ease}
+
+.yl{background:#1e40af;color:#fff;border-radius:6px;padding:1px 8px;font-weight:700}
+.badge.yl{background:#1e40af;color:#fff}
+.rm{background:var(--gray);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;margin:8px 0 12px}
+.rm-h{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
+.plus{width:28px;height:28px;border-radius:50%;border:1px solid var(--ac);background:var(--card);color:var(--ac);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
+.plus:hover{background:var(--ac);color:var(--acx)}
+.rm-item{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:9px 40px 9px 12px;margin-bottom:8px}
+.rm-item:has(.rm-ta){padding-right:12px}
+.rm-txt{overflow-wrap:anywhere;color:var(--tx)}
+.dots{position:absolute;top:4px;right:6px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:var(--mut);padding:2px 8px;border-radius:8px}
+.dots:hover{background:var(--soft);color:var(--hv)}
+.mn{display:flex;gap:8px;margin-top:8px}
+.rm-ta{width:100%;min-height:72px;border:1px solid var(--bd);border-radius:8px;padding:8px 10px;background:var(--bg);color:var(--tx);font:inherit;font-size:14px;resize:vertical}
+.rm-act{display:flex;gap:8px;margin-top:8px}
+
+.tw1{position:relative;margin-bottom:10px}
+.tw1>details{margin-bottom:0}
+.tw1 summary{padding-right:132px}
+.rmb{position:absolute;top:9px;right:10px;border:1px solid var(--bd);background:var(--card);color:var(--mut);border-radius:8px;padding:4px 12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:.15s}
+.rmb:hover{color:var(--hv);border-color:var(--hv)}
+.rmb.has{color:var(--red);border-color:var(--red);background:transparent}
+.rmp{position:absolute;right:10px;top:50px;z-index:20;width:min(390px,calc(100% - 20px));max-height:70vh;overflow:auto;box-shadow:0 18px 44px rgba(15,23,42,.25);border-radius:14px;background:var(--card);animation:fi .18s ease}
+.rmp .rm{margin:0;border:0}
+.rm-hb{display:flex;gap:6px;align-items:center}
+.rmx{border:0;background:transparent;color:var(--mut);font-size:15px;cursor:pointer;padding:4px 8px;border-radius:8px}
+.rmx:hover{background:var(--soft);color:var(--hv)}
+
+.yl.y,.badge.yl.y{background:#facc15;color:#422006}
+.yl.r,.badge.yl.r{background:#dc2626;color:#fff}
+.rst{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.zp{border-radius:999px;padding:3px 13px;font-size:13px;font-weight:700;cursor:default}
+.zp.b{background:#1e40af;color:#fff}
+.zp.y{background:#facc15;color:#422006}
+.zp.r{background:#dc2626;color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1 id="ttl">Teacher Exit Count (all BIOLOGY)</h1></div></header>
+<main>
+<div class="modes" id="modes"><button class="on" data-m="t">Teacher Exit Count</button><button data-m="i">নমস্কার ISSUE</button></div>
+<div id="m-t">
+<div class="stats" id="stats" hidden></div>
+<div class="card">
+<h2>নতুন ডেটা যোগ করুন</h2>
+<textarea id="in" placeholder="এখানে ডেটা পেস্ট করুন, তারপর “যোগ করুন” চাপুন। আগে প্রাথমিক সারসংক্ষেপ দেখাবে, ঠিক থাকলে ফাইনাল ডেটায় যোগ করতে পারবেন।"></textarea>
+<div class="row">
+<button class="p" id="add">যোগ করুন</button>
+<span id="msg" class="mut"></span>
+</div>
+<div id="pv" class="pv" hidden></div>
+</div>
+
+<div id="empty" class="card mut">এখনো কোনো ডেটা নেই। উপরের বক্সে ডেটা পেস্ট করে "যোগ করুন" চাপুন।</div>
+
+<div id="app" hidden>
+<div id="content">
+<div id="hint" class="card mut" style="text-align:center;padding:26px 14px">ডেটা দেখতে উপরের কার্ডে ক্লিক করুন: সারসংক্ষেপ, মোট শিক্ষক অথবা মোট দিন।</div>
+<section id="p-top" class="card panel" hidden><div class="row" style="margin:0 0 12px"><select id="s6"><option value="">সব তারিখ</option></select></div><div id="rst2" class="rst"></div>
+<div id="tt"></div></section>
+<section id="p-date" class="card panel" hidden>
+<div class="row" style="margin:0 0 12px">
+<select id="s3"><option value="all">সব শিক্ষক</option><option value="red">🔴 Red Zone (এক্সিট বাড়ছে)</option><option value="green">🟢 Green Zone (এক্সিট কমছে)</option></select>
+</div>
+<div id="dl"></div>
+</section>
+<section id="p-tch" class="card panel" hidden>
+<div class="row" style="margin:0 0 12px">
+<input type="search" id="q2" class="sm" placeholder="খুঁজুন (TPIN/নাম)">
+<select id="s2"><option value="name">নাম (A-Z)</option><option value="count">বেশি বার আগে</option><option value="tpin">TPIN অনুযায়ী</option><option value="red" id="o-red">🔴 Red Zone</option><option value="green" id="o-grn">🟢 Green Zone</option></select>
+<select id="s5"><option value="">সব তারিখ</option></select>
+<span class="tr"><span class="mut">সময়:</span><input type="time" id="tf1"><span class="mut">থেকে</span><input type="time" id="tf2"><button class="sm" id="tpn">রাত</button><button class="sm" id="tpd">দিন</button><button class="sm" id="tfc">সব সময়</button></span>
+</div>
+<div id="rst1" class="rst"></div>
+<div id="tl"></div>
+</section>
+</div>
+</div>
+<div id="big" class="big" hidden></div>
+</div>
+<div id="m-i" hidden>
+<div class="stats" id="istats" hidden></div>
+<div class="card">
+<h2>নমস্কার ISSUE ডেটা যোগ করুন</h2>
+<textarea id="iin" placeholder="এভাবে পেস্ট করুন, তারপর “যোগ করুন” চাপুন:&#10;HSC Q&amp;A Service&#10;Higher Mathematics 1st Paper&#10;অধ্যায়-৩ : সরলরেখা"></textarea>
+<div class="row">
+<span class="mut">কলামের ক্রম:</span>
+<select id="iord"><option value="0">Program · Subject · Chapter</option><option value="1">Program · Chapter · Subject</option><option value="2">Subject · Program · Chapter</option><option value="3">Subject · Chapter · Program</option><option value="4">Chapter · Program · Subject</option><option value="5">Chapter · Subject · Program</option></select>
+<button class="p" id="iadd">যোগ করুন</button>
+<span id="imsg" class="mut"></span>
+</div>
+<div id="ipv" class="pv" hidden></div>
+</div>
+<div id="iempty" class="card mut">এখনো কোনো ISSUE ডেটা নেই। উপরের বক্সে ডেটা পেস্ট করে "যোগ করুন" চাপুন।</div>
+<div id="iapp" hidden>
+<div id="ihint" class="card mut" style="text-align:center;padding:26px 14px">রিপোর্ট দেখতে উপরের কার্ডে ক্লিক করুন: সারসংক্ষেপ, Program wise Report অথবা Date wise Report।</div>
+<section id="ip-sum" class="card panel" hidden></section>
+<section id="ip-prog" class="card panel" hidden></section>
+<section id="ip-date" class="card panel" hidden></section>
+</div>
+<div id="ibig" class="big" hidden></div>
+</div>
+</main>
+<footer>Develop by <b>SEAM ARFIN</b></footer>
+<script>
+const $=id=>document.getElementById(id);
+const tRe=/(\d{1,2}:\d{2}\s*[AP]M)\s*$/i;
+const dRe=/(\d{1,2}\s+[A-Za-z]{3,9},?\s+\d{4})/;
+const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function toIso(s){const m=s&&s.match(/(\d{1,2})\s+([A-Za-z]{3})[a-z]*\.?,?\s+(\d{4})/);if(!m)return null;const i=MN.findIndex(x=>x.toLowerCase()===m[2].toLowerCase());if(i<0)return null;return m[3]+'-'+String(i+1).padStart(2,'0')+'-'+m[1].padStart(2,'0')}
+function label(k){const p=k.split('-');return p[2]+' '+MN[+p[1]-1]+' '+p[0]}
+function pad(n){return String(n).padStart(2,'0')}
+function yesterday(){const d=new Date();d.setDate(d.getDate()-1);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function mins(t){const m=t.match(/(\d{1,2}):(\d{2})\s*([AP])M/i);let h=+m[1]%12;if(m[3].toUpperCase()==='P')h+=12;return h*60+ +m[2]}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function fixTime(t){return t.toUpperCase().replace(/\s+/,' ')}
+
+function findDate(t){
+  const d=t.match(dRe);if(d){const k=toIso(d[1]);if(k)return k}
+  let n=t.match(/(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})/);if(n)return n[3]+'-'+pad(n[2])+'-'+pad(n[1]);
+  n=t.match(/\d{4}-\d{2}-\d{2}/);if(n)return n[0];
+  const w=t.match(/\b(today|yesterday)\b/i);if(w)return w[1].toLowerCase()==='today'?today():yesterday();
+  return null;
+}
+function stripDate(t){return t.replace(dRe,' ').replace(/(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})/,' ').replace(/\d{4}-\d{2}-\d{2}/,' ').replace(/\b(today|yesterday)\b/i,' ')}
+function parse(txt){
+  const out=[];let cur=null;
+  const push=m=>out.push({...cur,time:fixTime(m[1])});
+  txt.split(/\r?\n/).map(l=>l.replace(/[\u00a0\u202f]/g,' ').trim()).filter(Boolean).forEach(l=>{
+    const g=l.match(/^\d*\s*\[(\d+)\]\s*(.*)$/);
+    const m=l.match(tRe);
+    if(g){
+      const tpin=g[1];let rest=g[2];
+      const date=findDate(rest);
+      if(m)rest=rest.replace(tRe,'');
+      rest=stripDate(rest).replace(/\(\s*\d+\s*\)/g,' ').split(/\s+/).filter(w=>w&&w!==tpin).join(' ').trim();
+      cur={tpin,name:rest||tpin,date:date||today(),nodate:!date};
+      if(m){push(m);cur=null}
+      return;
+    }
+    if(!cur)return;
+    const d=findDate(l);
+    if(d){cur.date=d;cur.nodate=false}
+    if(m){push(m);cur=null}
+  });
+  return out;
+}
+
+/* ---------- storage ---------- */
+let days={},db=null,uid=null,mode='local';
+const LS='tc_days_v1';
+function lsLoad(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return {}}}
+function lsSave(){try{localStorage.setItem(LS,JSON.stringify(days))}catch(e){}}
+async function init(){
+  try{
+    if(typeof claude!=='undefined'){
+      const [u,d]=await Promise.all([claude.use('user'),claude.use('db')]);
+      if(u&&d){uid=await u.id();if(uid){db=d;mode='db'}}
+    }
+  }catch(e){}
+  try{
+    if(db){
+      const snap=await db.collection('data/users/'+uid+'/days').get();
+      snap.docs.forEach(d=>{const x=d.data();if(x&&Array.isArray(x.entries))days[d.id]=x.entries});
+    }else days=lsLoad();
+  }catch(e){mode='local';db=null;days=lsLoad()}
+  try{
+    if(db){const sn=await db.collection('data/users/'+uid+'/issues').get();sn.docs.forEach(d=>{const x=d.data();if(x&&Array.isArray(x.entries))idays[d.id]=x.entries})}
+    else idays=ilsLoad();
+  }catch(e){idays=ilsLoad()}
+  await loadRemarks();
+  renderAll();renderIssues();
+}
+async function saveDay(k){
+  if(db){
+    const ref=db.doc('data/users/'+uid+'/days/'+k);
+    if(days[k]&&days[k].length)await ref.set({entries:days[k]});else await ref.delete();
+  }else lsSave();
+}
+
+/* ---------- add (preview -> confirm) ---------- */
+let pending=null;
+function plan(list){
+  const byDay={};list.forEach(e=>(byDay[e.date]=byDay[e.date]||[]).push(e));
+  const add={};let added=0,skipped=0;
+  for(const k in byDay){
+    const cnt={};(days[k]||[]).forEach(e=>{const q=e.tpin+'|'+e.name.toLowerCase()+'|'+e.time;cnt[q]=(cnt[q]||0)+1});
+    byDay[k].forEach(e=>{
+      const q=e.tpin+'|'+e.name.toLowerCase()+'|'+e.time;
+      if(cnt[q]>0){cnt[q]--;skipped++}else{(add[k]=add[k]||[]).push({tpin:e.tpin,name:e.name,time:e.time});added++}
+    });
+  }
+  return {add,added,skipped};
+}
+function previewData(){
+  const list=parse($('in').value),msg=$('msg');
+  msg.textContent='';
+  if(!list.length){pending=null;$('pv').hidden=true;msg.className='er';msg.textContent='কোনো এন্ট্রি পাওয়া যায়নি। নামের পরে সময় (যেমন 6:21 PM) থাকতে হবে।';return}
+  pending=list;
+  const pl=plan(list);
+  const map={};
+  list.forEach(e=>{const q=e.tpin+'|'+e.name.toLowerCase();const r=map[q]=map[q]||{tpin:e.tpin,name:e.name,total:0,by:{}};r.total++;(r.by[e.date]=r.by[e.date]||[]).push(e.time)});
+  const rows=Object.values(map).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+  rows.forEach(r=>{r.dates=Object.keys(r.by).sort();for(const k in r.by)r.by[k].sort((a,b)=>mins(a)-mins(b))});
+  const dset=new Set(list.map(e=>e.date));
+  const dc={};list.forEach(e=>dc[e.date]=(dc[e.date]||0)+1);
+  const nd=list.filter(e=>e.nodate).length;
+  $('pv').innerHTML=`<h3>প্রাথমিক সারসংক্ষেপ</h3>
+<div><span class="badge">মোট ${list.length} এন্ট্রি</span> <span class="badge">${rows.length} শিক্ষক</span> <span class="badge">${dset.size} তারিখ</span> <span class="badge">নতুন ${pl.added}</span>${pl.skipped?` <span class="chip w">${pl.skipped} টি আগে থেকেই আছে</span>`:''}</div>
+<div style="margin-top:8px" class="mut">যে তারিখে যোগ হবে:</div><div>${Object.keys(dc).sort().map(k=>`<span class="chip">${label(k)} · ${dc[k]} এন্ট্রি</span>`).join('')}${nd?` <span class="chip w">${nd} টির তারিখ নেই, আজকের তারিখ ধরা হয়েছে</span>`:''}</div>
+<div class="tw"><table><thead><tr><th>#</th><th>TPIN</th><th>নাম</th><th>বার</th><th>তারিখ ও সময়</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.tpin)}</td><td>${esc(r.name)}</td><td class="n">${r.total}</td><td>${r.dates.map(k=>`<div class="dl"><b>${label(k)}</b> · ${r.by[k].length} বার<br>${chips(r.by[k])}</div>`).join('')}</td></tr>`).join('')}</tbody></table></div>
+<div class="row" style="margin-top:0"><button class="p" id="fin"${pl.added?'':' disabled'}>ফাইনাল ডেটায় যোগ করুন</button><button id="cnl">বাতিল</button>${pl.added?'':'<span class="mut">সব এন্ট্রি আগে থেকেই জমা আছে।</span>'}</div>`;
+  $('pv').hidden=false;
+}
+async function commitPending(){
+  if(!pending)return;
+  const msg=$('msg'),pl=plan(pending);
+  try{
+    for(const k in pl.add){days[k]=(days[k]||[]).concat(pl.add[k]);await saveDay(k)}
+    msg.className='ok';
+    msg.textContent=pl.added+' টি নতুন এন্ট্রি ফাইনাল ডেটায় যোগ হয়েছে'+(pl.skipped?' · '+pl.skipped+' টি আগে থেকেই ছিল (বাদ)':'')+'।';
+    $('in').value='';pending=null;$('pv').hidden=true;
+  }catch(e){msg.className='er';msg.textContent='সংরক্ষণ করা যায়নি: '+((e&&e.message)||'অজানা সমস্যা')}
+  renderAll();
+}
+
+/* ---------- data helpers ---------- */
+function aggregate(onlyKey){
+  const map={};let total=0;
+  Object.keys(days).sort().forEach(k=>{
+    if(onlyKey&&k!==onlyKey)return;
+    (days[k]||[]).forEach(e=>{
+      total++;
+      const q=e.tpin+'|'+e.name.toLowerCase();
+      const r=map[q]=map[q]||{tpin:e.tpin,name:e.name,total:0,by:{}};
+      r.total++;(r.by[k]=r.by[k]||[]).push(e.time);
+    });
+  });
+  const rows=Object.values(map);
+  rows.forEach(r=>{for(const k in r.by)r.by[k].sort((a,b)=>mins(a)-mins(b));r.dates=Object.keys(r.by).sort()});
+  const nm={};rows.forEach(r=>{nm[r.tpin]=(nm[r.tpin]||0)+1});rows.forEach(r=>r.multi=nm[r.tpin]);
+  return {rows,total};
+}
+function sortRows(rows,s){
+  if(s==='name')rows.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(s==='tpin')rows.sort((a,b)=>(+a.tpin||0)-(+b.tpin||0)||a.name.localeCompare(b.name));
+  else rows.sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+  return rows;
+}
+function filt(rows,q){q=q.trim().toLowerCase();return q?rows.filter(r=>r.tpin.includes(q)||r.name.toLowerCase().includes(q)):rows}
+function trend(by){const ds=Object.keys(by).sort();if(ds.length<2)return 0;const d=by[ds[ds.length-1]].length-by[ds[ds.length-2]].length;return d>0?1:d<0?-1:0}
+function nameHtml(n,t){return t>0?`<span class="up">${esc(n)} ▲</span>`:t<0?`<span class="dn">${esc(n)} ▼</span>`:esc(n)}
+const chips=a=>a.map(t=>`<span class="chip">${t}</span>`).join('');
+const multi=r=>r.multi>1?` <span class="chip w">একই TPIN-এ ${r.multi}টি নাম</span>`:'';
+
+/* ---------- render ---------- */
+const open=new Set();
+let tab='';
+function renderAll(){
+  const keys=Object.keys(days).filter(k=>days[k]&&days[k].length);
+  const has=keys.length>0;
+  $('app').hidden=!has;$('empty').hidden=has;$('stats').hidden=!has;$('big').hidden=!has;
+  if(!has)return;
+  const all=aggregate();
+  $('stats').innerHTML=[
+    ['top','','Top 20','সারসংক্ষেপ'],
+    ['tch','',all.rows.length,'মোট শিক্ষক (TPIN+নাম)'],
+    ['date','',keys.length,'মোট দিন']
+  ].map(x=>`<button class="stat clk${tab===x[0]?' on':''}" data-t="${x[0]}"><b>${x[2]}</b><span>${x[3]}</span></button>`).join('');
+  renderBig(all.total,new Set(all.rows.map(r=>r.tpin)).size);
+  window._all=all;window._fullBy={};all.rows.forEach(r=>{window._fullBy[r.tpin+'|'+nk(r.name)]=r.by});
+  renderDate(keys);fillDates();renderTeachers();renderTop(all);renderRmStats();
+}
+function trendAt(by,k){
+  const ds=Object.keys(by).sort().filter(d=>d<=k);
+  if(ds.length<2||ds[ds.length-1]!==k)return 0;
+  const x=by[k].length-by[ds[ds.length-2]].length;
+  return x>0?1:x<0?-1:0;
+}
+function allDays(keys){
+  const a=keys.slice().sort(),start=(a.length&&a[0]<'2026-10-05')?a[0]:'2026-10-05';
+  let end=today();if(a.length&&a[a.length-1]>end)end=a[a.length-1];
+  const out=[],e=new Date(end+'T00:00:00');
+  for(const d=new Date(start+'T00:00:00');d<=e;d.setDate(d.getDate()+1))out.push(d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()));
+  return out;
+}
+function renderDate(keys){
+  const ks=allDays(keys),z=$('s3').value;
+  const full={};window._all.rows.forEach(r=>{full[r.tpin+'|'+r.name.toLowerCase()]=r.by});
+  const html=ks.map(k=>{
+    const a=aggregate(k);sortRows(a.rows,'count');
+    let rows=a.rows.map(r=>({r,t:trendAt(full[r.tpin+'|'+r.name.toLowerCase()],k)}));
+    if(z==='red')rows=rows.filter(x=>x.t>0);else if(z==='green')rows=rows.filter(x=>x.t<0);
+    if(!rows.length)return z==='all'?`<div class="zr"><span>${label(k)}</span><span class="badge">0 এন্ট্রি</span><span class="mut">কোনো এক্সিট নেই</span></div>`:'';
+    const cnt=rows.reduce((n,x)=>n+x.r.total,0);
+    return `<details data-o="d${k}"${open.has('d'+k)?' open':''}><summary><span>${label(k)}</span><span class="badge">${cnt} এন্ট্রি</span><span class="badge">${rows.length} শিক্ষক</span></summary><div class="in tw"><table><thead><tr><th>#</th><th>TPIN</th><th>নাম</th><th>বার</th><th>সময়</th></tr></thead><tbody>${rows.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.r.tpin)}</td><td>${nameHtml(x.r.name,x.t)}${multi(x.r)}</td><td class="n">${x.r.total}</td><td>${chips(x.r.by[k])}</td></tr>`).join('')}</tbody></table></div></details>`;
+  }).join('');
+  $('dl').innerHTML=html||'<div class="mut">কিছু পাওয়া যায়নি</div>';
+}
+const toM=v=>{const p=v.split(':');return +p[0]*60+ +p[1]};
+function fmtM(m){const h=Math.floor(m/60),mm=m%60;return ((h%12)||12)+':'+String(mm).padStart(2,'0')+' '+(h>=12?'PM':'AM')}
+function inRange(t,a,b){const m=mins(t);return a<=b?(m>=a&&m<=b):(m>=a||m<=b)}
+function trRange(){const v1=$('tf1').value,v2=$('tf2').value;if(!v1&&!v2)return null;return [v1?toM(v1):0,v2?toM(v2):1439]}
+function timeFilter(rows,A,B){
+  const out=[];
+  rows.forEach(r=>{
+    const by={};let total=0;
+    for(const k in r.by){const a=r.by[k].filter(t=>inRange(t,A,B));if(a.length){by[k]=a;total+=a.length}}
+    if(total)out.push({...r,by,total,dates:Object.keys(by).sort()});
+  });
+  return out;
+}
+function dateFilter(rows,k){
+  const out=[];
+  rows.forEach(r=>{if(r.by[k]&&r.by[k].length)out.push({...r,fby:r.by,by:{[k]:r.by[k]},total:r.by[k].length,dates:[k]})});
+  return out;
+}
+function fillDates(){
+  const ks=Object.keys(days).filter(k=>days[k]&&days[k].length).sort().reverse();
+  ['s5','s6'].forEach(id=>{
+    const cur=$(id).value;
+    $(id).innerHTML='<option value="">সব তারিখ</option>'+ks.map(k=>`<option value="${k}"${k===cur?' selected':''}>${label(k)}</option>`).join('');
+  });
+}
+/* ===== Remarks (teacher wise) ===== */
+let remarks={};
+const rmUI={open:{},draft:{},edit:{},menu:{},confirm:{},text:{}};
+const RLS='tc_remarks_v1';
+const rkey=r=>r.tpin+'|'+nk(r.name);
+const rmCount=r=>(remarks[rkey(r)]||[]).length;
+async function loadRemarks(){
+  try{
+    let list=[];
+    if(db){const sn=await db.doc('data/users/'+uid+'/meta/remarks').get();const x=sn.exists?sn.data():null;if(x&&Array.isArray(x.list))list=x.list}
+    else list=JSON.parse(localStorage.getItem(RLS)||'[]');
+    remarks={};let mig=false;
+    list.forEach(e=>{if(e&&e.k&&Array.isArray(e.t))remarks[e.k]=e.t.map(x=>{if(typeof x==='string'){mig=true;return {x,s:Date.now()}}return x})});
+    if(mig)await saveRemarks();
+  }catch(e){}
+}
+async function saveRemarks(){
+  const list=Object.keys(remarks).filter(k=>remarks[k].length).map(k=>({k,t:remarks[k]}));
+  try{
+    if(db)await db.doc('data/users/'+uid+'/meta/remarks').set({list});
+    else localStorage.setItem(RLS,JSON.stringify(list));
+    return true;
+  }catch(e){return false}
+}
+function exitMs(k,t){const p=k.split('-'),m=mins(t);return new Date(+p[0],+p[1]-1,+p[2],Math.floor(m/60),m%60).getTime()}
+function rmState(r){
+  const key=rkey(r),list=remarks[key]||[];
+  if(!list.length)return '';
+  const by=(window._fullBy||{})[key]||{};
+  const after=ts=>{for(const k in by)for(const t of by[k])if(exitMs(k,t)>ts)return true;return false};
+  if(list.length>=3&&after(list[2].s))return 'red';
+  if(after(list[0].s))return 'yellow';
+  return 'blue';
+}
+const rmCls=r=>({yellow:'y',red:'r'}[rmState(r)]||'');
+function renderRmStats(){
+  const c={blue:0,yellow:0,red:0};
+  (window._all?window._all.rows:[]).forEach(r=>{const st=rmState(r);if(st)c[st]++});
+  const h=`<span class="zp b" title="Remarks আছে, কিন্তু তার পরে নতুন এক্সিট নেই">Blue: ${c.blue}</span><span class="zp y" title="১ম Remarks যোগ করার পরে নতুন এক্সিট হয়েছে">Yellow: ${c.yellow}</span><span class="zp r" title="৩য় Remarks যোগ করার পরে নতুন এক্সিট হয়েছে">Red: ${c.red}</span>`;
+  ['rst1','rst2'].forEach(id=>{const el=$(id);if(el)el.innerHTML=h});
+}
+function rmName(r,t){return nameHtml(r.name,t)}
+function rmBox(r){
+  const key=rkey(r),list=remarks[key]||[];
+  const items=list.map((o,i)=>{const t=o.x;
+    const id=key+':'+i;
+    if(rmUI.edit[id])return `<div class="rm-item"><textarea class="rm-ta" data-id="${esc(id)}" placeholder="Remarks লিখুন">${esc(rmUI.text[id]!==undefined?rmUI.text[id]:t)}</textarea><div class="rm-act"><button class="p sm" data-act="save-edit" data-i="${i}">Save</button><button class="sm" data-act="cancel-edit" data-i="${i}">Cancel</button></div></div>`;
+    return `<div class="rm-item"><div class="rm-txt">${esc(t).replace(/\n/g,'<br>')}</div><button class="dots" data-act="menu" data-i="${i}" aria-label="অপশন">⋮</button>${rmUI.menu[id]?`<div class="mn"><button class="sm" data-act="edit" data-i="${i}">Edit</button><button class="sm dg" data-act="del" data-i="${i}">${rmUI.confirm[id]?'নিশ্চিত? আবার চাপুন':'Delete'}</button></div>`:''}</div>`;
+  }).join('');
+  const showDraft=!list.length||rmUI.draft[key];
+  const draft=showDraft?`<div class="rm-item"><textarea class="rm-ta" data-id="${esc(key)}:new" placeholder="এই শিক্ষকের সাথে কথা বলে কী কী ফিডব্যাক পেয়েছেন, এখানে লিখুন">${esc(rmUI.text[key+':new']||'')}</textarea><div class="rm-act"><button class="p sm" data-act="save-new">Save</button>${list.length?'<button class="sm" data-act="cancel-new">Cancel</button>':''}</div></div>`:'';
+  return `<div class="rm" data-k="${encodeURIComponent(key)}"><div class="rm-h"><span>Remarks${list.length?' · '+list.length:''}</span><span class="rm-hb">${list.length?'<button class="plus" data-act="add" title="নতুন Remarks">+</button>':''}<button class="rmx" data-act="close" aria-label="বন্ধ">✕</button></span></div>${items}${draft}</div>`;
+}
+function rmSide(r){
+  const key=rkey(r),n=rmCount(r);
+  return `<button class="rmb${n?' has':''}" data-act="toggle">Remarks${n?' ('+n+')':''}</button>`+(rmUI.open[key]?`<div class="rmp">${rmBox(r)}</div>`:'');
+}
+async function rmAction(box,b){
+  const key=decodeURIComponent(box.dataset.k),act=b.dataset.act,i=+b.dataset.i,id=key+':'+i;
+  const ta=b.closest('.rm-item')?b.closest('.rm-item').querySelector('textarea'):null;
+  const clear=()=>{delete rmUI.menu[id];delete rmUI.confirm[id];delete rmUI.edit[id];delete rmUI.text[id]};
+  if(act==='toggle'){rmUI.open[key]=!rmUI.open[key]}
+  else if(act==='close'){rmUI.open[key]=false}
+  else if(act==='add'){rmUI.draft[key]=true}
+  else if(act==='cancel-new'){delete rmUI.draft[key];delete rmUI.text[key+':new']}
+  else if(act==='save-new'){
+    const v=ta?ta.value.trim():'';if(!v){if(ta)ta.focus();return}
+    (remarks[key]=remarks[key]||[]).push({x:v,s:Date.now()});
+    delete rmUI.draft[key];delete rmUI.text[key+':new'];await saveRemarks();
+  }
+  else if(act==='menu'){const was=rmUI.menu[id];rmUI.menu={};rmUI.confirm={};if(!was)rmUI.menu[id]=true}
+  else if(act==='edit'){delete rmUI.menu[id];rmUI.edit[id]=true;rmUI.text[id]=remarks[key][i].x}
+  else if(act==='cancel-edit'){clear()}
+  else if(act==='save-edit'){
+    const v=ta?ta.value.trim():'';if(!v){if(ta)ta.focus();return}
+    remarks[key][i].x=v;clear();await saveRemarks();
+  }
+  else if(act==='del'){
+    if(!rmUI.confirm[id]){rmUI.confirm[id]=true}
+    else{remarks[key].splice(i,1);if(!remarks[key].length)delete remarks[key];rmUI.menu={};rmUI.confirm={};await saveRemarks()}
+  }
+  renderTeachers();renderTop(window._all);renderRmStats();
+  if(act==='add'||act==='edit'||(act==='toggle'&&rmUI.open[key])){
+    const nb=document.querySelector('.tw1[data-k="'+encodeURIComponent(key)+'"]');
+    const t=nb&&nb.querySelector('textarea');if(t)t.focus();
+  }
+}
+function renderTeachers(){
+  const rg=trRange(),dk=$('s5').value;
+  let all=window._all.rows;
+  if(rg)all=timeFilter(all,rg[0],rg[1]);
+  if(dk)all=dateFilter(all,dk);
+  const v=$('s2').value,tr=r=>dk&&r.fby?trendAt(r.fby,dk):trend(r.by);
+  $('o-red').textContent='🔴 Red Zone (এক্সিট বাড়ছে) · '+all.filter(r=>tr(r)>0).length;
+  $('o-grn').textContent='🟢 Green Zone (এক্সিট কমছে) · '+all.filter(r=>tr(r)<0).length;
+  let base=all.slice();
+  if(v==='red')base=base.filter(r=>tr(r)>0);else if(v==='green')base=base.filter(r=>tr(r)<0);
+  const rows=filt(sortRows(base,(v==='red'||v==='green')?'count':v),$('q2').value);
+  $('tl').innerHTML=((rg||dk)?`<div class="mut" style="margin-bottom:10px"><b>${[dk?label(dk):'',rg?fmtM(rg[0])+' – '+fmtM(rg[1]):''].filter(Boolean).join(' · ')}</b> · ${rows.length} জন শিক্ষক · মোট ${rows.reduce((n,r)=>n+r.total,0)} এক্সিট</div>`:'')+rows.map(r=>{const k='t'+r.tpin+'|'+r.name;return `<div class="tw1" data-k="${encodeURIComponent(rkey(r))}"><details data-o="${esc(k)}"${open.has(k)?' open':''}><summary><span>${rmName(r,tr(r))}</span><span class="badge${rmCount(r)?' yl '+rmCls(r):''}">TPIN ${esc(r.tpin)}</span><span class="badge">মোট ${r.total} বার</span>${multi(r)}</summary><div class="in tw"><table><thead><tr><th>তারিখ</th><th>বার</th><th>সময়</th></tr></thead><tbody>${r.dates.map(d=>`<tr><td>${label(d)}</td><td class="n">${r.by[d].length}</td><td>${chips(r.by[d])}</td></tr>`).join('')}</tbody></table></div></details>${rmSide(r)}</div>`}).join('')||'<div class="mut">কিছু পাওয়া যায়নি</div>';
+}
+function renderTop(all){
+  const dk=$('s6').value;let src=all.rows.slice();if(dk)src=dateFilter(src,dk);
+  const rows=sortRows(src,'count').slice(0,20);window._top=rows;
+  const max=rows[0]?rows[0].total:1;
+  const sum=rows.reduce((a,r)=>a+r.total,0);
+  $('tt').innerHTML=`<h2>সবচেয়ে বেশি এন্ট্রি: শীর্ষ ${rows.length} জন</h2>`+rows.map((r,i)=>`<div class="ti clk"><div class="top"><span class="rank ${i<3?'r'+(i+1):''}">${i+1}</span><div class="nm">${nameHtml(r.name,dk&&r.fby?trendAt(r.fby,dk):trend(r.by))}<small>${rmCount(r)?`<span class="yl ${rmCls(r)}">TPIN ${esc(r.tpin)}</span>`:`TPIN ${esc(r.tpin)}`}</small></div><div class="bar"><i style="width:${Math.max(3,r.total/max*100)}%"></i></div><div class="c">${r.total}</div></div><div class="dts hid">${r.dates.map(k=>`<span class="chip">${label(k)} · ${r.by[k].length} বার</span>`).join('')}</div></div>`).join('');
+}
+const bigNow={};
+function renderRings(box,items){
+  if(!$(items[0][0])){$(box).innerHTML=items.map(x=>`<div class="circ"><div class="ring"><b id="${x[0]}">0</b></div><span>${x[2]}</span></div>`).join('')}
+  items.forEach(x=>{
+    const el=$(x[0]),from=bigNow[x[0]]||0,to=x[1];bigNow[x[0]]=to;
+    if(from===to){el.textContent=to;return}
+    const t0=performance.now(),dur=900;
+    const step=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e);if(k<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);
+  });
+}
+function renderBig(total,tp){renderRings('big',[['b1',total,'মোট এন্ট্রি'],['b2',tp,'আলাদা TPIN']])}
+function showTab(t){
+  tab=(tab===t)?'':t;
+  document.querySelectorAll('.stat.clk').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  const map={date:'p-date',tch:'p-tch',top:'p-top'};
+  for(const k in map)$(map[k]).hidden=k!==tab;
+  $('hint').hidden=!!tab;
+}
+
+/* ---------- events ---------- */
+$('add').onclick=previewData;
+$('in').addEventListener('input',()=>{pending=null;$('pv').hidden=true});
+$('pv').addEventListener('click',e=>{
+  if(e.target.closest('#fin'))commitPending();
+  else if(e.target.closest('#cnl')){pending=null;$('pv').hidden=true;$('msg').textContent=''}
+});
+$('s3').onchange=()=>renderDate(Object.keys(days).filter(k=>days[k]&&days[k].length));
+$('p-top').addEventListener('click',e=>{const t=e.target.closest('.ti.clk');if(t)t.classList.toggle('sh')});
+$('stats').addEventListener('click',e=>{const b=e.target.closest('.clk');if(b)showTab(b.dataset.t)});
+$('s2').onchange=$('s5').onchange=$('q2').oninput=$('tf1').oninput=$('tf2').oninput=renderTeachers;
+$('s6').onchange=()=>renderTop(window._all);
+$('tl').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const box=b.closest('.tw1');if(!box)return;e.preventDefault();rmAction(box,b)});
+$('tl').addEventListener('input',e=>{const t=e.target;if(t.classList&&t.classList.contains('rm-ta'))rmUI.text[t.dataset.id]=t.value});
+$('tpn').onclick=()=>{$('tf1').value='20:00';$('tf2').value='02:00';renderTeachers()};
+$('tpd').onclick=()=>{$('tf1').value='02:00';$('tf2').value='20:00';renderTeachers()};
+$('tfc').onclick=()=>{$('tf1').value='';$('tf2').value='';renderTeachers()};
+document.addEventListener('toggle',e=>{const d=e.target;if(d.dataset&&d.dataset.o){d.open?open.add(d.dataset.o):open.delete(d.dataset.o)}},true);
+/* ================= নমস্কার ISSUE ================= */
+const nk=t=>String(t).toLowerCase().replace(/\s+/g,' ').trim();
+const ik=e=>nk(e.p)+'|'+nk(e.s)+'|'+nk(e.c);
+const ORD=[['p','s','c'],['p','c','s'],['s','p','c'],['s','c','p'],['c','p','s'],['c','s','p']];
+const ILS='ti_issues_v1';
+let idays={},itab='',ipending=null;
+function ilsLoad(){try{return JSON.parse(localStorage.getItem(ILS)||'{}')}catch(e){return {}}}
+async function saveIDay(k){
+  if(db){
+    const ref=db.doc('data/users/'+uid+'/issues/'+k);
+    if(idays[k]&&idays[k].length)await ref.set({entries:idays[k]});else await ref.delete();
+  }else{try{localStorage.setItem(ILS,JSON.stringify(idays))}catch(e){}}
+}
+function parseQA(txt){
+  const out=[];let curDate=null,blk=null;
+  const flush=()=>{
+    if(!blk)return;
+    let date=null;const rest=[];
+    blk.lines.forEach((l,i)=>{
+      const d=findDate(l);if(d&&!date)date=d;
+      const t=(d?stripDate(l):l).replace(tRe,'').trim();
+      if(i===0)return;
+      if(!t.replace(/[\s,|:;-]/g,''))return;
+      rest.push(t);
+    });
+    let first=blk.lines[0];if(findDate(first))first=stripDate(first);
+    first=first.replace(tRe,'').trim();
+    const prog=first.replace(/\s*Q\s*&\s*A\b.*$/i,'').trim()||first;
+    let s='অজানা',c='অজানা';
+    const ci=rest.findIndex(x=>/^(অধ্যায়|chapter|ch[.\s-])/i.test(x));
+    if(ci>=1){c=rest[ci];s=rest[ci-1]}
+    else if(rest.length>=2){s=rest[0];c=rest[1]}
+    else if(rest.length===1){s=rest[0]}
+    if(date)curDate=date;
+    out.push({p:prog,s,c,date:date||curDate||today(),nodate:!(date||curDate)});
+    blk=null;
+  };
+  txt.split(/\r?\n/).map(l=>l.replace(/[\u00a0\u202f]/g,' ').trim()).filter(Boolean).forEach(l=>{
+    if(/Q\s*&\s*A/i.test(l)){flush();blk={lines:[l]}}
+    else if(blk)blk.lines.push(l);
+    else{const d=findDate(l);if(d)curDate=d}
+  });
+  flush();
+  return out;
+}
+function parseIssues(txt,ord){
+  if(/Q\s*&\s*A/i.test(txt))return parseQA(txt);
+  const out=[];let curDate=null;
+  const labs={program:'p','প্রোগ্রাম':'p',subject:'s','বিষয়':'s',chapter:'c','অধ্যায়':'c'};
+  txt.split(/\r?\n/).map(l=>l.replace(/[\u00a0\u202f]/g,' ').trim()).filter(Boolean).forEach(l=>{
+    const date=findDate(l);
+    let rest=(date?stripDate(l):l).replace(tRe,'').trim();
+    if(!rest.replace(/[\s,|:;-]/g,'')){if(date)curDate=date;return}
+    if(/^(date|program|subject|chapter|প্রোগ্রাম|বিষয়|অধ্যায়)(\s|\t|$)/i.test(rest)&&!/[:=]\s*\S/.test(rest))return;
+    const rec={p:'',s:'',c:''};let got=false,m;
+    const re=/(program|subject|chapter|প্রোগ্রাম|বিষয়|অধ্যায়)\s*[:=]\s*([^\t|;,]+)/gi;
+    while((m=re.exec(rest))){rec[labs[m[1].toLowerCase()]]=m[2].trim();got=true}
+    if(!got){
+      let f=rest.split('\t');
+      if(f.length<2)f=rest.split(/\s*\|\s*/);
+      if(f.length<2)f=rest.split(/\s+[-–>]+\s+|\s*;\s*/);
+      if(f.length<2)f=rest.split(/\s*,\s*/);
+      f=f.map(x=>x.trim()).filter(Boolean);
+      ord.forEach((key,i)=>{if(f[i])rec[key]=f[i]});
+    }
+    ['p','s','c'].forEach(k=>{if(!rec[k])rec[k]='অজানা'});
+    if(date)curDate=date;
+    out.push({...rec,date:date||curDate||today(),nodate:!(date||curDate)});
+  });
+  return out;
+}
+function iPlan(list){
+  const byDay={};list.forEach(e=>(byDay[e.date]=byDay[e.date]||[]).push(e));
+  const add={};let added=0,skipped=0;
+  for(const k in byDay){
+    const cnt={};(idays[k]||[]).forEach(e=>{const q=ik(e);cnt[q]=(cnt[q]||0)+1});
+    byDay[k].forEach(e=>{const q=ik(e);if(cnt[q]>0){cnt[q]--;skipped++}else{(add[k]=add[k]||[]).push({p:e.p,s:e.s,c:e.c});added++}});
+  }
+  return {add,added,skipped};
+}
+function groupP(list){
+  const map={};
+  list.forEach(e=>{
+    const r=map[nk(e.p)]=map[nk(e.p)]||{name:e.p,total:0,sub:{},dates:{}};
+    r.total++;r.dates[e.dk]=(r.dates[e.dk]||0)+1;
+    const q=nk(e.s)+'|'+nk(e.c);const x=r.sub[q]=r.sub[q]||{s:e.s,c:e.c,n:0};x.n++;
+  });
+  return Object.values(map).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+}
+function flat(onlyKey){
+  const out=[];
+  Object.keys(idays).sort().forEach(k=>{if(onlyKey&&k!==onlyKey)return;(idays[k]||[]).forEach(e=>out.push({...e,dk:k}))});
+  return out;
+}
+const subChips=r=>Object.values(r.sub).sort((a,b)=>b.n-a.n||a.s.localeCompare(b.s)).map(x=>`<span class="chip">${esc(x.s)} · ${esc(x.c)} · ${x.n}</span>`).join('');
+function iPreview(){
+  const list=parseIssues($('iin').value,ORD[+$('iord').value]),msg=$('imsg');
+  msg.textContent='';
+  if(!list.length){ipending=null;$('ipv').hidden=true;msg.className='er';msg.textContent='কোনো ISSUE পাওয়া যায়নি। প্রতি লাইনে একটা ISSUE থাকতে হবে।';return}
+  ipending=list;
+  const pl=iPlan(list);
+  const rows=groupP(list.map(e=>({...e,dk:e.date})));
+  const dc={};list.forEach(e=>dc[e.date]=(dc[e.date]||0)+1);
+  const nd=list.filter(e=>e.nodate).length;
+  $('ipv').innerHTML=`<h3>প্রাথমিক সারসংক্ষেপ</h3>
+<div><span class="badge">মোট ${list.length} ISSUE</span> <span class="badge">${rows.length} Program</span> <span class="badge">${Object.keys(dc).length} তারিখ</span> <span class="badge">নতুন ${pl.added}</span>${pl.skipped?` <span class="chip w">${pl.skipped} টি আগে থেকেই আছে</span>`:''}</div>
+<div style="margin-top:8px" class="mut">যে তারিখে যোগ হবে:</div><div>${Object.keys(dc).sort().map(k=>`<span class="chip">${label(k)} · ${dc[k]} ISSUE</span>`).join('')}${nd?` <span class="chip w">${nd} টির তারিখ নেই, আজকের তারিখ ধরা হয়েছে</span>`:''}</div>
+<div class="tw"><table><thead><tr><th>#</th><th>Program</th><th>ISSUE</th><th>Subject · Chapter</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td class="n">${r.total}</td><td>${subChips(r)}</td></tr>`).join('')}</tbody></table></div>
+<div class="row" style="margin-top:0"><button class="p" id="ifin"${pl.added?'':' disabled'}>ফাইনাল ডেটায় যোগ করুন</button><button id="icnl">বাতিল</button>${pl.added?'':'<span class="mut">সব ISSUE আগে থেকেই জমা আছে।</span>'}</div>`;
+  $('ipv').hidden=false;
+}
+async function iCommit(){
+  if(!ipending)return;
+  const msg=$('imsg'),pl=iPlan(ipending);
+  try{
+    for(const k in pl.add){idays[k]=(idays[k]||[]).concat(pl.add[k]);await saveIDay(k)}
+    msg.className='ok';
+    msg.textContent=pl.added+' টি নতুন ISSUE ফাইনাল ডেটায় যোগ হয়েছে'+(pl.skipped?' · '+pl.skipped+' টি আগে থেকেই ছিল (বাদ)':'')+'।';
+    $('iin').value='';ipending=null;$('ipv').hidden=true;
+  }catch(e){msg.className='er';msg.textContent='সংরক্ষণ করা যায়নি: '+((e&&e.message)||'অজানা সমস্যা')}
+  renderIssues();
+}
+function renderIssues(){
+  const ks=Object.keys(idays).filter(k=>idays[k]&&idays[k].length);
+  const has=ks.length>0;
+  $('iapp').hidden=!has;$('iempty').hidden=has;$('istats').hidden=!has;$('ibig').hidden=!has;
+  if(!has)return;
+  const rows=groupP(flat());
+  const subs=new Set(),chs=new Set();let total=0;
+  ks.forEach(k=>idays[k].forEach(e=>{total++;subs.add(nk(e.s));chs.add(nk(e.s)+'|'+nk(e.c))}));
+  $('istats').innerHTML=[['sum','Top 20','সারসংক্ষেপ'],['prog',rows.length,'Program wise Report'],['date',ks.length,'Date wise Report']].map(x=>`<button class="stat clk${itab===x[0]?' on':''}" data-t="${x[0]}"><b>${x[1]}</b><span>${x[2]}</span></button>`).join('');
+  renderRings('ibig',[['i1',total,'মোট ISSUE'],['i2',subs.size,'আলাদা Subject'],['i3',chs.size,'আলাদা Chapter']]);
+  $('ip-prog').innerHTML=rows.map(r=>{
+    const key='ip'+nk(r.name),ds=Object.keys(r.dates).sort();
+    const subsR=Object.values(r.sub).sort((a,b)=>b.n-a.n||a.s.localeCompare(b.s));
+    return `<details data-o="${esc(key)}"${open.has(key)?' open':''}><summary><span>${esc(r.name)}</span><span class="badge">${r.total} ISSUE</span><span class="badge">${ds.length} দিন</span></summary><div class="in tw"><div style="margin:4px 0 8px">${ds.map(k=>`<span class="chip">${label(k)} · ${r.dates[k]}</span>`).join('')}</div><table><thead><tr><th>Subject</th><th>Chapter</th><th>ISSUE</th></tr></thead><tbody>${subsR.map(x=>`<tr><td>${esc(x.s)}</td><td>${esc(x.c)}</td><td class="n">${x.n}</td></tr>`).join('')}</tbody></table></div></details>`;
+  }).join('');
+  $('ip-date').innerHTML=allDays(ks).map(k=>{
+    const n=(idays[k]||[]).length;
+    if(!n)return `<div class="zr"><span>${label(k)}</span><span class="badge">0 ISSUE</span><span class="mut">কোনো ISSUE নেই</span></div>`;
+    const pr=groupP(flat(k)),key='id'+k;
+    return `<details data-o="${key}"${open.has(key)?' open':''}><summary><span>${label(k)}</span><span class="badge">${n} ISSUE</span><span class="badge">${pr.length} Program</span></summary><div class="in tw"><table><thead><tr><th>#</th><th>Program</th><th>ISSUE</th><th>Subject · Chapter</th></tr></thead><tbody>${pr.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td class="n">${r.total}</td><td>${subChips(r)}</td></tr>`).join('')}</tbody></table></div></details>`;
+  }).join('');
+  renderISum();
+}
+let isumTab='ov',izone='all';
+function trendN(m){const ds=Object.keys(m).sort();if(ds.length<2)return 0;const d=m[ds[ds.length-1]]-m[ds[ds.length-2]];return d>0?1:d<0?-1:0}
+function groupBy(list,keyF,nameF,subF){
+  const m={};
+  list.forEach(e=>{
+    const k=keyF(e),r=m[k]=m[k]||{name:nameF(e),sub:subF?subF(e):'',total:0,dates:{}};
+    r.total++;r.dates[e.dk]=(r.dates[e.dk]||0)+1;
+  });
+  const rows=Object.values(m);
+  rows.forEach(r=>{r.t=trendN(r.dates);r.chips=Object.keys(r.dates).sort().map(k=>`<span class="chip">${label(k)} · ${r.dates[k]}</span>`).join('')});
+  return rows.sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+}
+function dateRows(list){
+  const tot={},pm={};
+  list.forEach(e=>{tot[e.dk]=(tot[e.dk]||0)+1;const q=pm[e.dk]=pm[e.dk]||{};q[e.p]=(q[e.p]||0)+1});
+  const ks=Object.keys(tot).sort();
+  const rows=ks.map((k,i)=>{
+    const prev=i?tot[ks[i-1]]:null,d=prev===null?0:tot[k]-prev;
+    return {name:label(k),sub:Object.keys(pm[k]).length+' Program',total:tot[k],t:d>0?1:d<0?-1:0,
+      chips:Object.entries(pm[k]).sort((a,b)=>b[1]-a[1]).map(x=>`<span class="chip">${esc(x[0])} · ${x[1]}</span>`).join('')};
+  });
+  return rows.sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+}
+function rankRows(rows,withChips){
+  const max=rows.length?rows[0].total:1;
+  return rows.map((r,i)=>`<div class="ti"><div class="top"><span class="rank ${i<3?'r'+(i+1):''}">${i+1}</span><div class="nm">${nameHtml(r.name,r.t)}${r.sub?`<small>${esc(r.sub)}</small>`:''}</div><div class="bar"><i style="width:${Math.max(3,r.total/max*100)}%"></i></div><div class="c">${r.total}</div></div>${withChips&&r.chips?`<div class="dts">${r.chips}</div>`:''}</div>`).join('')||'<div class="mut">কিছু পাওয়া যায়নি</div>';
+}
+function renderISum(){
+  const list=flat();
+  const cats={
+    prog:['Program wise',groupBy(list,e=>nk(e.p),e=>e.p)],
+    sub:['Subject wise',groupBy(list,e=>nk(e.s),e=>e.s)],
+    chap:['Chapter wise',groupBy(list,e=>nk(e.s)+'|'+nk(e.c),e=>e.c,e=>e.s)],
+    date:['Date wise',dateRows(list)]
+  };
+  const pills=[['ov','Overall'],['prog','Program wise'],['sub','Subject wise'],['chap','Chapter wise'],['date','Date wise']]
+    .map(x=>`<button class="pill${isumTab===x[0]?' on':''}" data-s="${x[0]}">${x[1]}</button>`).join('');
+  const zone=isumTab==='ov'?'':`<select id="iz"><option value="all"${izone==='all'?' selected':''}>সব</option><option value="red"${izone==='red'?' selected':''}>🔴 Red Zone (ISSUE বাড়ছে)</option><option value="green"${izone==='green'?' selected':''}>🟢 Green Zone (ISSUE কমছে)</option></select>`;
+  let body='';
+  if(isumTab==='ov'){
+    body='<div class="ovg">'+Object.values(cats).map(c=>`<div><h3 class="ovh">${c[0]} · Top 5</h3>${rankRows(c[1].slice(0,5),false)}</div>`).join('')+'</div>';
+  }else{
+    let rows=cats[isumTab][1];
+    if(izone==='red')rows=rows.filter(r=>r.t>0);else if(izone==='green')rows=rows.filter(r=>r.t<0);
+    body=`<h2>${cats[isumTab][0]}: সবচেয়ে বেশি ISSUE · Top ${Math.min(20,rows.length)}</h2>`+rankRows(rows.slice(0,20),true);
+  }
+  $('ip-sum').innerHTML=`<div class="pills">${pills}</div>${zone?`<div class="row" style="margin:0 0 12px">${zone}</div>`:''}${body}`;
+}
+function showITab(t){
+  itab=(itab===t)?'':t;
+  document.querySelectorAll('#istats .stat.clk').forEach(b=>b.classList.toggle('on',b.dataset.t===itab));
+  $('ip-sum').hidden=itab!=='sum';$('ip-prog').hidden=itab!=='prog';$('ip-date').hidden=itab!=='date';$('ihint').hidden=!!itab;
+}
+function setMode(m){
+  $('m-t').hidden=m!=='t';$('m-i').hidden=m!=='i';
+  document.querySelectorAll('#modes button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  const t=m==='t'?'Teacher Exit Count (all BIOLOGY)':'নমস্কার ISSUE';
+  $('ttl').textContent=t;document.title=t;
+}
+$('modes').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setMode(b.dataset.m)});
+$('iadd').onclick=iPreview;
+$('iord').onchange=()=>{if(ipending)iPreview()};
+$('iin').addEventListener('input',()=>{ipending=null;$('ipv').hidden=true});
+$('ipv').addEventListener('click',e=>{
+  if(e.target.closest('#ifin'))iCommit();
+  else if(e.target.closest('#icnl')){ipending=null;$('ipv').hidden=true;$('imsg').textContent=''}
+});
+$('ip-sum').addEventListener('click',e=>{const b=e.target.closest('.pill');if(b){isumTab=b.dataset.s;renderISum()}});
+$('ip-sum').addEventListener('change',e=>{if(e.target.id==='iz'){izone=e.target.value;renderISum()}});
+$('istats').addEventListener('click',e=>{const b=e.target.closest('.clk');if(b)showITab(b.dataset.t)});
+
+init();
+</script>
+</body>
+</html>
